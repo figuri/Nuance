@@ -1,0 +1,9 @@
+<h2>List of Uploaded Files</h2>
+<ul>
+    {% for file in uploaded_files %}
+        <li>
+            <a href="{% url 'download_file' file.id %}">{{ file.file_name }}</a>
+            - <a href="{% url 'delete_file' file.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
