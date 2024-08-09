@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update File</title>
+</head>
+<body>
+    <h1>Update File</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'view_file' file.id %}">Back to File Details</a>
+</body>
+</html>

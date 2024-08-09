@@ -31,7 +31,7 @@ TEMPLATES = [
 # Other settings
 SECRET_KEY = 'django-insecure-#!efz8z6)%$m)(755-kptb!u_1d2b2rwb$8g0&vz_v#vm2##kb'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["18.222.253.170","ec2-18-222-253-170.us-east-2.compute.amazonaws.com","localhost","127.0.0.1"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'filehandler',
     # Include apps here
 ]
 MIDDLEWARE = [

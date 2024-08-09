@@ -29,4 +29,10 @@ urlpatterns = [
     path('download/<int:file_id>/', views.download_file, name='download_file'),
     path('delete/<int:file_id>/', views.delete_file, name='delete_file'),
     path('update/<int:file_id>/', views.update_file, name='update_file'),
+    path('files/', views.list_files, name='list_files'),
+    path('files/upload/', views.upload_file, name='upload_file'),
+    path('files/<int:file_id>/download/', views.download_file, name='download_file'),
+    path('files/<int:file_id>/view/', views.view_file, name='view_file'),
+    path('files/<int:file_id>/update/', views.update_file, name='update_file'),
+    path('files/<int:file_id>/delete/', views.delete_file, name='delete_file'),
 ]

@@ -7,9 +7,18 @@
     <h1>Uploaded Files</h1>
     <ul>
         {% for file in uploaded_files %}
-            <li>{{ file.file_name }} - <a href="{% url 'download_file' file.id %}">Download</a></li>
+            <li>
+                {{ file.file_name }} - 
+                <a href="{% url 'download_file' file.id %}">Download</a> |
+                <a href="{% url 'view_file' file.id %}">View</a> |
+                <form action="{% url 'delete_file' file.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
         {% endfor %}
     </ul>
     <a href="{% url 'upload_file' %}">Upload another file</a>
 </body>
 </html>
+

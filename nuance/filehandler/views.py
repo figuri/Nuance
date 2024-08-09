@@ -29,6 +29,12 @@ def list_files(request):
         'uploaded_files': uploaded_files
     })
 
+def view_file(request, file_id):
+    uploaded_file = get_object_or_404(UploadedFile, pk=file_id)
+    return render(request, 'filehandler/view_file.html', {
+        'file': uploaded_file
+    })
+
 def delete_file(request, file_id):
     uploaded_file = get_object_or_404(UploadedFile, pk=file_id)
     file_path = uploaded_file.file.path

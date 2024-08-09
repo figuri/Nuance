@@ -13,5 +13,6 @@
     {% if uploaded_file %}
         <p>File {{ uploaded_file.file_name }} uploaded successfully!</p>
     {% endif %}
+    <a href="{% url 'list_files' %}">Back to List</a>
 </body>
 </html>
