@@ -13,4 +13,4 @@ class UploadedFile(models.Model):
 
     @property
     def file_url(self):
-        return self.file.url
+        return self.file.url, self.file_name, self.file.size

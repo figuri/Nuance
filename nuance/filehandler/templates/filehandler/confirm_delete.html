@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Deletion</title>
+</head>
+<body>
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete "{{ file.file_name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Deletion</button>
+        <a href="{% url 'list_files' %}">Cancel</a>
+    </form>
+</body>
+</html>

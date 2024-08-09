@@ -9,7 +9,6 @@
     <p>File Size: {{ file.file_size }}</p>
     <p>Uploaded At: {{ file.uploaded_at }}</p>
     <a href="{% url 'download_file' file.id %}">Download File</a>
-    <a href="{% url 'update_file' file.id %}">Update File</a>
     <a href="{% url 'list_files' %}">Back to List</a>
 </body>
 </html>

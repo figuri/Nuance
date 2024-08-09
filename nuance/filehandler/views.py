@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, Http404, HttpResponseBadRequest
 from .models import UploadedFile
 from django.core.files.storage import default_storage
 
@@ -35,20 +35,13 @@ def view_file(request, file_id):
         'file': uploaded_file
     })
 
+#function handles deletion and then redirects to list_files
 def delete_file(request, file_id):
-    uploaded_file = get_object_or_404(UploadedFile, pk=file_id)
-    file_path = uploaded_file.file.path
-    if default_storage.exists(file_path):
-        default_storage.delete(file_path)
-    uploaded_file.delete()
-    return HttpResponse('File deleted successfully')
-
-def update_file(request, file_id):
-    uploaded_file = get_object_or_404(UploadedFile, pk=file_id)
+    file = get_object_or_404(UploadedFile, id=file_id)
+    
     if request.method == 'POST':
-        new_file_name = request.POST.get('file_name')
-        if new_file_name:
-            uploaded_file.file_name = new_file_name
-            uploaded_file.save()
-            return HttpResponse('File updated successfully')
-    return HttpResponse('Invalid request', status=400)
+        file.delete()
+        return redirect('list_files')  # Redirect to the list of files
+    
+    return render(request, 'filehandler/confirm_delete.html', {'file': file})
+    
