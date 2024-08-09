@@ -1,5 +1,7 @@
 from django.db import models
 
+#explain this class
+
 class UploadedFile(models.Model):
     file = models.FileField(upload_to='uploads/%Y/%m/%d/')
     file_name = models.CharField(max_length=255, blank=True, null=True)
